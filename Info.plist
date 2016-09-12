@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Author</key>
+	<string>Qurb Ltd.</string>
+	<key>Builder Version</key>
+	<string>11601.7.7</string>
+	<key>CFBundleDisplayName</key>
+	<string>UntrackMe</string>
+	<key>CFBundleIdentifier</key>
+	<string>xyz.qurb.untrackme</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.1.1</string>
+	<key>CFBundleVersion</key>
+	<string>1.1.1</string>
+	<key>Chrome</key>
+	<dict>
+		<key>Database Quota</key>
+		<integer>1048576</integer>
+		<key>Global Page</key>
+		<string>global.html</string>
+		<key>Popovers</key>
+		<array>
+			<dict>
+				<key>Filename</key>
+				<string>popover.html</string>
+				<key>Height</key>
+				<integer>60</integer>
+				<key>Identifier</key>
+				<string>myPopover</string>
+				<key>Width</key>
+				<integer>160</integer>
+			</dict>
+		</array>
+		<key>Toolbar Items</key>
+		<array>
+			<dict>
+				<key>Identifier</key>
+				<string>show-popover</string>
+				<key>Image</key>
+				<string>Icon.png</string>
+				<key>Include By Default</key>
+				<true/>
+				<key>Label</key>
+				<string>UntrackMe</string>
+				<key>Palette Label</key>
+				<string>UntrackMe</string>
+				<key>Popover</key>
+				<string>myPopover</string>
+				<key>Tool Tip</key>
+				<string>UntrackMe</string>
+			</dict>
+		</array>
+	</dict>
+	<key>Description</key>
+	<string>Removes the part of the URLs that is used to track you on the web</string>
+	<key>DeveloperIdentifier</key>
+	<string>PKDRP5G5F8</string>
+	<key>ExtensionInfoDictionaryVersion</key>
+	<string>1.0</string>
+	<key>Permissions</key>
+	<dict>
+		<key>Website Access</key>
+		<dict>
+			<key>Include Secure Pages</key>
+			<true/>
+			<key>Level</key>
+			<string>All</string>
+		</dict>
+	</dict>
+	<key>Website</key>
+	<string>http://qurb.xyz</string>
+</dict>
+</plist>

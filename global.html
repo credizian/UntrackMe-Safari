@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!-- Try on this URL: http://lifehacker.com/nine-simple-tips-for-improving-your-table-manners-at-fa-1782221528?utm_campaign=socialflow_lifehacker_facebook&utm_source=lifehacker_facebook&utm_medium=socialflow -->
+
+<html>
+  <body>
+	<script type="text/javascript">
+
+    	var numOfBlocked = localStorage.numOfBlocked || '';
+    	// console.log(numOfBlocked);
+
+    	//Create the popover instance
+		const gui = safari.extension.popovers[0].contentWindow;
+
+		var performCommand = function(details) {
+		    var result = details.url.search(/\?/);
+		    var currentURL = details.url;
+		    gui.addBlockCount(numOfBlocked);
+
+		    if(result > 0) {
+		      //Switch Statement based on: http://stackoverflow.com/questions/2896626/switch-statement-for-string-matching-in-javascript
+		      switch (true) {
+		        case /\?utm_source=/.test(currentURL):
+		          break;
+		        case /\?utm_campaign=/.test(currentURL):
+		          break;
+		        case /\?src=/.test(currentURL):
+		          break;
+		        case /\?sr_source=/.test(currentURL):
+		          break;
+		        case /\?smid=/.test(currentURL):
+		          break;
+		        case /\?smid=/.test(currentURL):
+		          break;
+		        case /\?utm_content=/.test(currentURL):
+		          break;
+		        case /\?utm_medium=/.test(currentURL):
+		          break;
+		        case /\?utm_term=/.test(currentURL):
+		          break;
+		        case /\?content=/.test(currentURL):
+		          break;
+		      	case /&utm_campaign=/.test(currentURL):
+		          break;
+		      	case /&utm_medium=/.test(currentURL):
+		          break;
+		      	case /&utm_term=/.test(currentURL):
+		          break;
+		        default:
+		          // console.log("No URL tracking detected");
+		          return{};
+		      	}
+		      // This return only gets hit if the the Switch statement hits a tracker and we remove having to repeat return statement for each scenario
+		      console.log("Tracking detected: ",details.url);
+
+		      //Redirect URL
+		      details.preventDefault();
+		      details.target.url = details.url.substring(0,result);
+
+		      //Update blocked count
+		      numOfBlocked++;
+
+          	//Update local storage with new blocked count and update the badge
+          	localStorage.numOfBlocked = numOfBlocked.toString();
+		    gui.addBlockCount(numOfBlocked);
+
+	    	}
+
+		    // Testing Code
+		    // var site = "www.facebook.com";
+		    // if (event.url && event.url.match(site)) {
+      //       	event.preventDefault();
+      //       	event.target.url = "http://qurb.xyz";
+      //   	}
+
+		};
+		safari.application.addEventListener("beforeNavigate", performCommand, true);
+	</script>
+  </body>
+</html>
